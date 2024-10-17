@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Genetic Algorithm TSP Solver - Jon Irastorza</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="#" class="image avatar"><img src="images/my_photo.jpg" alt="Jon Irastorza's Photo" /></a>
+				<h2><strong>AI Specialist</strong></h2>
+			</div>
+			<!-- Navigation menu -->
+			<nav class="navbar">
+				<a href="index.html">Home <i class="icon solid fa-home"></i></a><br>
+				<a href="index.html#portfolio">Portfolio  <i class="icon solid fa-book"></i></a><br>
+			</nav>
+		</header>
+
+		<!-- Main -->
+		<div id="main">
+			<!-- Project Details -->
+			<section id="project-details">
+				<header class="major">
+					<h2>Genetic Algorithm TSP Solver</h2>
+				</header>
+				<p>
+					In this project, I implemented a Genetic Algorithm to solve the Traveling Salesman Problem (TSP). The goal was to optimize the route a salesman takes to visit a set of cities, minimizing the total travel distance. The project explored advanced techniques to enhance the algorithm’s efficiency and accuracy.
+				</p>
+				<p>
+					<strong>Technologies used:</strong> Python, Numpy, Matplotlib, Numba.
+				</p>
+				<p>
+					<strong>Main features of the algorithm:</strong>
+					<ul>
+						<li>Fitness sharing in the elimination phase to maintain diversity.</li>
+						<li>2-opt and 3-opt local search methods for route optimization.</li>
+						<li>Adaptive and self-adaptive mechanisms for tuning mutation and selection parameters.</li>
+					</ul>
+				</p>
+				<p>
+					The solution representation was implemented using a permutation of numbers representing cities, stored in NumPy arrays. Each candidate solution represents a distinct route. The adaptive nature of the algorithm allowed dynamic adjustment of key parameters such as mutation probability and selection mechanisms during the optimization process.
+				</p>
+				
+				<!-- Added Image 1 -->
+				<img src="images/projects/Branchbound.gif" alt="TSP Route Visualization" class="image fit">
+				<p>Example of an optimized route found by the genetic algorithm.</p>
+				
+				<p>
+					<strong>Optimization strategies:</strong>
+					<ul>
+						<li><strong>Initialization:</strong> The initial population is a mix of random solutions and heuristic-based solutions, balancing exploration and exploitation. The heuristic adjusts the level of greediness based on an exponential probability distribution.</li>
+						<li><strong>Selection:</strong> k-tournament selection was used, with an adaptive k-value determined by the algorithm to optimize solution selection over generations.</li>
+						<li><strong>Mutation:</strong> Inversion mutation was preferred due to its ability to introduce high variability, particularly beneficial in asymmetric distance matrices.</li>
+						<li><strong>Crossover:</strong> Edge-3 crossover was implemented to ensure offspring inherit common structures from both parents, improving the exploration of the solution space.</li>
+						<li><strong>Local Search:</strong> The algorithm alternates between 2-opt and 3-opt local search methods, adjusting based on self-adaptive parameters to explore better routes more effectively.</li>
+					</ul>
+				</p>
+				
+				<!-- Added Image 2 -->
+				<div class="image-container">
+                    <img src="images/projects/tsp_convergence_graph.png" alt="Topic Evolution by Year" class="responsive-image" style="width: 60%; max-width: 400px;">
+                </div>  
+				<p>A convergence graph showing how fitness improves over iterations.</p>
+				
+				<p><strong>Challenges faced:</strong> 
+					<ul>
+						<li>Fine-tuning the mutation rate and selection mechanism through self-adaptive schemes.</li>
+						<li>Balancing between exploitation and exploration using fitness sharing to prevent premature convergence.</li>
+					</ul>
+				</p>
+				
+				<p>
+					<strong>Experiment Results:</strong> The genetic algorithm consistently outperformed traditional heuristic approaches across various test cases, demonstrating its ability to find more optimal solutions. This method effectively balances exploration and exploitation, yielding improved route optimization while maintaining population diversity throughout the process. The integration of advanced techniques such as self-adaptive mechanisms and local search methods contributed significantly to the quality of the results.
+				</p>
+				
+				<!-- Added Image 3 -->
+				<div class="image-container">
+                    <img src="images/projects/tsp_algorithm_flowchart.png" alt="Topic Evolution by Year" class="responsive-image" style="width: 60%; max-width: 400px;">
+                </div>   
+				<p>Flowchart of the genetic algorithm illustrating the main phases.</p>
+				
+				<p>
+					You can check out the implementation and experiment results on <a href="https://github.com/jon1ran/genetic-tsp-solver" target="_blank">GitHub</a>.
+				</p>
+			</section>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/jon-irastorza-ancin-39308125b/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/jon1ran" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
+					<li><a href="mailto:joniranupv@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Jon Irastorza</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

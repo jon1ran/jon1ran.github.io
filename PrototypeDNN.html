@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Basque Parliamentary Speech Analysis - Jon Irastorza</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="#" class="image avatar"><img src="images/my_photo.jpg" alt="Jon Irastorza's Photo" /></a>
+				<h2><strong>AI Specialist</strong></h2>
+			</div>
+			<!-- Navigation menu -->
+			<nav class="navbar">
+				<a href="index.html">Home <i class="icon solid fa-home"></i></a><br>
+				<a href="index.html#portfolio">Portfolio  <i class="icon solid fa-book"></i></a><br>
+			</nav>
+		</header>
+
+    <!-- Main -->
+    <div id="main">
+        <!-- Project Details -->
+        <section id="project-details">
+            <header class="major">
+                <h2>Improving Robustness of Prototype-Based DNNs</h2>
+            </header>
+            <p>
+                This project investigates the vulnerabilities of Prototype-Based Deep Neural Networks (DNNs) to adversarial attacks and proposes strategies to improve their robustness. These networks, designed to be self-explaining by using prototypes for decision-making, offer greater interpretability compared to traditional "black-box" models.
+            </p>
+
+            <!-- Model Architecture Section -->
+            <h3>Model Architecture</h3>
+            <p>
+                The architecture of the prototype-based DNN consists of an encoder network, a prototype layer, a fully connected layer, and a decoder network. The input image is first encoded into a lower-dimensional space by the encoder. The encoded input is then compared with several learned prototypes in the prototype layer using the squared L2 distance.
+            </p>
+            <p>
+                This design ensures interpretability, as users can visualize the closest prototypes and understand how the model arrived at its prediction. Below is the overall architecture:
+            </p>
+            <img src="images/projects/prototype_portrait.png" alt="Prototype DNN Architecture" class="image fit">
+
+            <!-- Adversarial Attack Framework -->
+            <h3>Adversarial Attack Framework</h3>
+            <p>
+                Adversarial attacks attempt to subtly modify input data in such a way that the perturbations are imperceptible to humans, yet they can significantly mislead a neural network. In this project, we used adversarial attacks to assess the vulnerabilities of prototype-based DNNs, focusing on methods such as:
+            </p>
+            <ul>
+                <li><strong>Fast Gradient Sign Method (FGSM):</strong> A one-step attack that calculates the gradient of the loss with respect to the input and adjusts the input by following the gradient direction.</li>
+                <li><strong>Projected Gradient Descent (PGD):</strong> An iterative attack where small perturbations are repeatedly applied, increasing the adversarial robustness challenge for the model.</li>
+            </ul>
+            <p>
+                Below is an example where slight adversarial noise transforms a "cat" image into being classified as a "dog." This highlights the impact of adversarial perturbations, which are imperceptible to the human eye but confusing to the model.
+            </p>
+            <img src="images/projects/pgd_attack_example.png" alt="PGD Adversarial Example" class="image fit">
+            <p><strong>Original Classification:</strong> Cat (0.99)<br>
+               <strong>Adversarial Classification:</strong> Dog (0.99)
+            </p>
+
+            <!-- Example of Explanation Provided by the Model -->
+            <h3>Model Explanation Example</h3>
+            <p>
+                The prototype-based DNN explains its predictions by showing the closest learned prototypes for a given input. For instance, when classifying an image of the digit '4', the model shows how it associates the input with prototypes of '4', providing transparent reasoning.
+            </p>
+            <img src="images/projects/explanation_example.png" alt="Explanation Example" class="image fit">
+            <p><strong>Input:</strong> Digit '4'<br>
+               <strong>Top 3 Closest Prototypes:</strong><br>
+               Prototype 1: Distance = 0.04<br>
+               Prototype 2: Distance = 0.10<br>
+               Prototype 3: Distance = 1.03
+            </p>
+
+            <!-- Proposed Defenses -->
+            <h3>Proposed Defenses</h3>
+            <p>
+                To improve the robustness of prototype-based DNNs against adversarial attacks, several defense strategies were implemented:
+            </p>
+            <ul>
+                <li><strong>Adversarial Training:</strong> The model was trained with adversarial examples to make it resilient against such attacks. This strengthens the decision boundaries, making it more resistant to small perturbations.</li>
+                <li><strong>Modified Autoencoder Loss:</strong> To ensure that the prototypes remain closely related to their respective classes, the autoencoder loss was modified to preserve the latent space.</li>
+                <li><strong>Prototype Regularization:</strong> Regularization ensures that the prototypes stay representative of their classes, reducing the chance of successful adversarial attacks.</li>
+            </ul>
+
+            <!-- Results and Conclusions -->
+            <h3>Conclusions</h3>
+            <p>
+                The experiments confirmed that prototype-based DNNs are vulnerable to adversarial attacks. However, after applying the proposed defenses, the model's robustness was significantly improved. The table below shows the accuracy of the default model and the adversarially trained model on both the default and adversarial test sets, along with the improvement percentage directly under the adversarial accuracy.
+            </p>
+
+            <!-- Robustness Gains Table -->
+            <table style="width:100%; text-align: center; border: 1px solid black; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #f2f2f2;">
+                        <th style="border: 1px solid black; padding: 8px;">Model</th>
+                        <th style="border: 1px solid black; padding: 8px;">Accuracy on Default Test Set (%)</th>
+                        <th style="border: 1px solid black; padding: 8px;">Accuracy on Adversarial Test Set (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Default Model</td>
+                        <td style="border: 1px solid black; padding: 8px;">99.17%</td>
+                        <td style="border: 1px solid black; padding: 8px;">1.48%</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Adversarially Trained Model</td>
+                        <td style="border: 1px solid black; padding: 8px;">98.25%</td>
+                        <td style="border: 1px solid black; padding: 8px;">
+                            97.30% <br>
+                            <span style="color:green;">+60.59%</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                Adversarial training was particularly effective, reducing the model’s susceptibility to adversarial examples and maintaining high classification accuracy even under attack. Additionally, the modified autoencoder and prototype regularization further improved the reliability of the explanations, ensuring that the model's decision-making process remained transparent and trustworthy.
+            </p>
+            <p>
+                The combination of interpretability and robustness achieved in this work demonstrates the potential of prototype-based DNNs for use in high-risk applications, such as healthcare or autonomous systems, where both accurate predictions and clear explanations are essential for building trust in AI systems.
+            </p>
+
+            <p>
+                You can view the source code and detailed implementation on <a href="https://github.com/jon1ran/PrototypeDNN-Robustness" target="_blank">GitHub</a>.
+            </p>
+        </section>
+    </div>
+
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/jon-irastorza-ancin-39308125b/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/jon1ran" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
+					<li><a href="mailto:joniranupv@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Jon Irastorza</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

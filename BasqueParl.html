@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Basque Parliamentary Speech Analysis - Jon Irastorza</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="#" class="image avatar"><img src="images/my_photo.jpg" alt="Jon Irastorza's Photo" /></a>
+				<h2><strong>AI Specialist</strong></h2>
+			</div>
+			<!-- Navigation menu -->
+			<nav class="navbar">
+				<a href="index.html">Home <i class="icon solid fa-home"></i></a><br>
+				<a href="index.html#portfolio">Portfolio  <i class="icon solid fa-book"></i></a><br>
+			</nav>
+		</header>
+
+		<!-- Main -->
+		<div id="main">
+			<!-- Project Details -->
+			<section id="project-details">
+				<header class="major">
+					<h2>Basque Parliamentary Speech Analysis</h2>
+				</header>
+				<p>
+					This project focuses on analyzing political speeches from the Basque Parliament using Natural Language Processing (NLP) techniques. The BasqueParl dataset, a bilingual corpus of parliamentary transcriptions from 2012-2020, was used for this research. The main goal was to identify and analyze topics discussed during the sessions, uncovering trends and patterns over time.
+				</p>
+				
+				<h3>Data Description</h3>
+				<p>
+					The dataset contains transcriptions of 41.417 speeches from various parliamentary sessions, covering two legislatures (2012-2016 and 2016-2020). Each entry includes fields such as the speaker’s name, party, gender, and the full speech text. Preprocessing included lemmatization (reducing words to their root forms) and removal of stopwords to focus on the core content.
+				</p>
+
+                <div class="image-container">
+                    <img src="images\projects\basqueparl_dataset.png" alt="Dataset Details" class="responsive-image" style="width: 60%; max-width: 400px;">
+                </div>   
+
+				<h3>Methodology</h3>
+				<p>
+					The Latent Dirichlet Allocation (LDA) algorithm, an unsupervised machine learning model, was used to identify hidden topics in the speeches. Three different models were trained with varying numbers of topics to fine-tune the granularity of analysis:
+				</p>
+				<ul>
+					<li><strong>Model 1:</strong> Focused on 30 topics, aiming for a balance between granularity and interpretability.</li>
+					<li><strong>Model 2:</strong> Increased the number of topics to 40 to explore more nuanced themes.</li>
+					<li><strong>Model 3:</strong> Similar to Model 2 but with adjusted parameters for word frequency.</li>
+				</ul>
+
+                <div class="image-container">
+                    <img src="images\projects\topics_model1.png" alt="Topic Distribution Chart" class="responsive-image" style="width: 100%; max-width: 1000px;">
+                </div> 
+
+				<h3>Results</h3>
+				<p>
+					The analysis revealed interesting insights:
+					<ul>
+						<li>Key topics like terrorism, gender equality, and corruption were prevalent in the parliamentary discussions.</li>
+						<li>The analysis showed how the importance of topics evolved over time, with health becoming a major issue in 2020 due to the onset of the COVID-19 pandemic.</li>
+						<li>Gender analysis indicated that women were more likely to address topics related to gender equality, while men discussed business and industry more frequently.</li>
+					</ul>
+				</p>
+			
+                <div class="image-container">
+                    <img src="images\projects\topic_distribution.png" alt="Topic Evolution by Year" class="responsive-image" style="width: 100%; max-width: 1000px;">
+                </div>                
+
+				<h3>Challenges</h3>
+				<p>
+					Working with a bilingual dataset, where a significant portion of speeches were in Basque, presented unique challenges. To maintain consistency, only the Spanish speeches were used for topic analysis. Preprocessing, including lemmatization and stopword removal, was critical for reducing noise and improving model accuracy.
+				</p>
+
+				<h3>Technologies Used</h3>
+				<p>
+					<strong>Python, NLTK, Gensim, Latent Dirichlet Allocation (LDA), Pandas, Matplotlib</strong>
+				</p>
+
+				<p>
+					For more details and the source code, you can view the full project on <a href="https://github.com/jon1ran/BasqueParl" target="_blank">GitHub</a>.
+				</p>
+			</section>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/jon-irastorza-ancin-39308125b/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/jon1ran" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
+					<li><a href="mailto:joniranupv@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Jon Irastorza</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
