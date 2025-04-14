@@ -37,13 +37,14 @@
         <p>
             We computed the total and normalized distance covered by each player using Euclidean metrics across all recorded moments. Normalization accounts for the actual minutes played to get a fair average per quarter.
         </p>
-        
+        <img src="images/projects/nba_dist_1.png" alt="Distance formula" class="image fit">
+        <img src="images/projects/nba_dist_2.png" alt="Average distance per quarter formula" class="image fit">
         <!-- Speed Zones -->
         <h3>Speed Zones Analysis</h3>
         <p>
             Player speeds were classified into three zones (slow, normal, fast). A moving average filter (window size: 10) was applied to smoothen the speed data and exclude unrealistic outliers. Transitions between zones and quarter breaks defined run boundaries.
         </p>
-        
+        <img src="images/projects/nba_speed.png" alt="Speed formula" class="image fit">
         <p><strong>Highlights:</strong></p>
         <ul>
             <li>Fast run median distance: 10m</li>
@@ -56,28 +57,27 @@
         <p>
             The system also computed offensive/defensive rebound counts and identified the farthest rebound for each player using synchronized play-by-play and positional data.
         </p>
-        <img src="images/projects/rebound_chart.png" alt="Average Rebounds per Team" class="image fit">
 
         <h4>Top 10 Farthest Rebounds</h4>
-        <table style="width:100%; text-align: center; border: 1px solid black; border-collapse: collapse;">
+        <table style="width:50%; text-align: center; border: 1px solid black; border-collapse: collapse; margin: auto;">
             <thead>
-                <tr style="background-color: #f2f2f2;">
-                    <th style="border: 1px solid black; padding: 8px;">Rank</th>
-                    <th style="border: 1px solid black; padding: 8px;">Player ID</th>
-                    <th style="border: 1px solid black; padding: 8px;">Distance (m)</th>
-                </tr>
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid black; padding: 8px;">Rank</th>
+                <th style="border: 1px solid black; padding: 8px;">Player ID</th>
+                <th style="border: 1px solid black; padding: 8px;">Distance (m)</th>
+            </tr>
             </thead>
             <tbody>
-                <tr><td>1</td><td>200765</td><td>14.29</td></tr>
-                <tr><td>2</td><td>2571</td><td>13.77</td></tr>
-                <tr><td>3</td><td>203110</td><td>13.68</td></tr>
-                <tr><td>4</td><td>201939</td><td>13.65</td></tr>
-                <tr><td>5</td><td>203546</td><td>13.62</td></tr>
-                <tr><td>6</td><td>1626169</td><td>13.57</td></tr>
-                <tr><td>7</td><td>2590</td><td>13.44</td></tr>
-                <tr><td>8</td><td>2544</td><td>13.39</td></tr>
-                <tr><td>9</td><td>201567</td><td>13.39</td></tr>
-                <tr><td>10</td><td>202681</td><td>13.38</td></tr>
+            <tr><td>1</td><td>200765</td><td>14.29</td></tr>
+            <tr><td>2</td><td>2571</td><td>13.77</td></tr>
+            <tr><td>3</td><td>203110</td><td>13.68</td></tr>
+            <tr><td>4</td><td>201939</td><td>13.65</td></tr>
+            <tr><td>5</td><td>203546</td><td>13.62</td></tr>
+            <tr><td>6</td><td>1626169</td><td>13.57</td></tr>
+            <tr><td>7</td><td>2590</td><td>13.44</td></tr>
+            <tr><td>8</td><td>2544</td><td>13.39</td></tr>
+            <tr><td>9</td><td>201567</td><td>13.39</td></tr>
+            <tr><td>10</td><td>202681</td><td>13.38</td></tr>
             </tbody>
         </table>
 
