@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>NBA Spark - Jon Irastorza</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="is-preload">
+
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="#" class="image avatar"><img src="images/my_photo.jpg" alt="Jon Irastorza's Photo" /></a>
+        <h2><strong>Big Data & AI Engineer</strong></h2>
+    </div>
+    <nav class="navbar">
+        <a href="index.html">Home <i class="icon solid fa-home"></i></a><br>
+        <a href="index.html#portfolio">Portfolio <i class="icon solid fa-book"></i></a><br>
+    </nav>
+</header>
+
+<!-- Main -->
+<div id="main">
+    <section id="project-details">
+        <header class="major">
+            <h2>NBA Spark: Movement Data Analytics Using Apache Spark</h2>
+        </header>
+        <p>
+            This project leverages Apache Spark to process and analyze NBA player movement and play-by-play data across 84 games from the 2015/16 season. All large-scale computations were executed on a Hadoop cluster to take full advantage of distributed data processing capabilities. The analysis aims to extract insights on player behavior, speed, rebounds, and distance traveled using SparkSQL and scalable computing principles.
+        </p>
+        
+        <img src="images/projects/spurs.gif" alt="NBA Spark Animation" class="image fit">
+
+        <!-- Distance Traveled -->
+        <h3>Player Distance Traveled</h3>
+        <p>
+            We computed the total and normalized distance covered by each player using Euclidean metrics across all recorded moments. Normalization accounts for the actual minutes played to get a fair average per quarter.
+        </p>
+        
+        <!-- Speed Zones -->
+        <h3>Speed Zones Analysis</h3>
+        <p>
+            Player speeds were classified into three zones (slow, normal, fast). A moving average filter (window size: 10) was applied to smoothen the speed data and exclude unrealistic outliers. Transitions between zones and quarter breaks defined run boundaries.
+        </p>
+        
+        <p><strong>Highlights:</strong></p>
+        <ul>
+            <li>Fast run median: 10 (e.g., players 201582, 101145, 203524...)</li>
+            <li>Top fast-distance player: ID 202691, 393.15 meters</li>
+            <li>235 players never reached fast zone (213 never played)</li>
+        </ul>
+
+        <!-- Rebound Analysis -->
+        <h3>Rebound Metrics</h3>
+        <p>
+            The system also computed offensive/defensive rebound counts and identified the farthest rebound for each player using synchronized play-by-play and positional data.
+        </p>
+        <img src="images/projects/rebound_chart.png" alt="Average Rebounds per Team" class="image fit">
+
+        <h4>Top 10 Farthest Rebounds</h4>
+        <table style="width:100%; text-align: center; border: 1px solid black; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="border: 1px solid black; padding: 8px;">Rank</th>
+                    <th style="border: 1px solid black; padding: 8px;">Player ID</th>
+                    <th style="border: 1px solid black; padding: 8px;">Distance (m)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>200765</td><td>14.29</td></tr>
+                <tr><td>2</td><td>2571</td><td>13.77</td></tr>
+                <tr><td>3</td><td>203110</td><td>13.68</td></tr>
+                <tr><td>4</td><td>201939</td><td>13.65</td></tr>
+                <tr><td>5</td><td>203546</td><td>13.62</td></tr>
+                <tr><td>6</td><td>1626169</td><td>13.57</td></tr>
+                <tr><td>7</td><td>2590</td><td>13.44</td></tr>
+                <tr><td>8</td><td>2544</td><td>13.39</td></tr>
+                <tr><td>9</td><td>201567</td><td>13.39</td></tr>
+                <tr><td>10</td><td>202681</td><td>13.38</td></tr>
+            </tbody>
+        </table>
+
+        <p>
+            The full performance breakdown and report are available <a href="https://github.com/jon1ran/nba-spark" target="_blank">on GitHub</a>.
+        </p>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li><a href="https://www.linkedin.com/in/jon-irastorza-ancin-39308125b/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+            <li><a href="https://github.com/jon1ran" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
+            <li><a href="mailto:joniranupv@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Jon Irastorza</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
